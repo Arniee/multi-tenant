@@ -4,8 +4,15 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.1.*"
-	},
+		"laravel/framework": "4.1.*",
+        "intervention/image": "dev-master",
+        "way/generators": "dev-master",
+        "dompdf/dompdf": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*",
+        "mockery/mockery": "dev-master@dev"
+    },
 	"autoload": {
 		"classmap": [
 			"app/commands",
@@ -13,9 +20,13 @@
 			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
-			"app/tests/TestCase.php"
-		]
-	},
+			"app/tests/TestCase.php",
+            "app/ECMS"
+        ]
+    },
+    "psr-0": {
+        "ECMS": "app/"
+    },
 	"scripts": {
 		"post-install-cmd": [
 			"php artisan clear-compiled",

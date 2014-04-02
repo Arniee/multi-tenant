@@ -13,15 +13,25 @@ sudo yum --enablerepo=remi install httpd -y
 
 sudo service httpd start
 
-sudo yum --enablerepo=remi install php php-mysql -y
+#sudo yum --enablerepo=remi install php php-mysql -y
 
-sudo yum --enablerepo=remi install php-mcrypt -y
+#sudo yum --enablerepo=remi install php-mcrypt -y
+
+#sudo yum --enablerepo=remi install php-gd -y
+
+sudo yum --enablerepo=remi install php-dom -y
+
+yum --enablerepo=remi install php-cli php-cgi php-common php-gd php-dom php-mysql php-mcrypt -y
+
+yum install php-pear* -y
 
 sudo yum --enablerepo=remi install mysql-server -y
 
 #sudo yum install php54w.x86_64 php54w-cli.x86_64 php54w-common.x86_64 php54w-gd.x86_64 php54w-ldap.x86_64 php54w-mbstring.x86_64 php54w-mcrypt.x86_64 php54w-mysql.x86_64 php54w-pdo.x86_64 mysql-server-5.5 php-mysql git -y
 
 sudo yum install -y php-xdebug
+
+sudo yum install -y git
 
 #msql
 /etc/init.d/mysqld start
@@ -30,6 +40,9 @@ sudo yum install -y php-xdebug
 
 #apache stuff
 sudo a2enmod rewrite
+
+a2enmod rewrite
+yum provides \*mod_rewrite\*
 
 sudo rm -rf /var/www/html
 

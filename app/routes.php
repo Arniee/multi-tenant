@@ -15,3 +15,20 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('/test', function()
+{
+    $client = ECMS\Modules\Tenants\Models\Tenant::find(2);
+    //return $client;
+    $context = App::make('ECMS\Contexts\Context');
+    $context->set($client);
+    //var_dump($context);
+    $repository = App::make('ECMS\Modules\Articles\Repositories\ArticleRepository');
+
+    $articles = $repository->all();
+
+    foreach($articles as $article)
+    {
+        var_dump($article->title);
+    }
+});
